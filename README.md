@@ -8,7 +8,7 @@ This is a Dockerized Student Registration application that allows users to regis
 
 ```bash
 git clone https://github.com/dagmaros27/dockerized-web-app.git
-cd dockerized_web_app
+cd dockerized-web-app
 ```
 
 ### Step 2: Build and Run the Application Using Docker Compose
