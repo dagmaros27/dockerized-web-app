@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Information</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Student Information</h1>
+    <form method="POST" action="/add_student">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required />
+      <br />
+      <label for="campus_id">University Id:</label>
+      <input type="text" name="campus_id" required />
+      <br />
+      <label for="department">Department:</label>
+      <select name="department" required>
+        {% for department in departments %}
+        <option value="{{ department }}">{{ department }}</option>
+        {% endfor %}
+      </select>
+      <br />
+      <label for="university">University:</label>
+      <select name="university" required>
+        {% for university in universities %}
+        <option value="{{ university }}">{{ university }}</option>
+        {% endfor %}
+      </select>
+      <br />
+      <button type="submit">Add Student</button>
+    </form>
+    <br />
+    <h2>Registered Students:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>University Id</th>
+          <th>Department</th>
+          <th>University</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ student.name }}</td>
+          <td>{{ student.campus_id }}</td>
+          <td>{{ student.department }}</td>
+          <td>{{ student.university }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
